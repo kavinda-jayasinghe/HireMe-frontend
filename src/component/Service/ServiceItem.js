@@ -2,7 +2,7 @@ import { Button, Card, CardActions, CardContent, Typography } from '@mui/materia
 import { margin } from '@mui/system';
 import React from 'react'
 
-const ServiceItem = ({first_name,last_name, category, city, description,imgURL,id }) => {
+const ServiceItem = ({name, category, city, description,imgURL,id }) => {
   
   return (
     <Card
@@ -26,7 +26,7 @@ const ServiceItem = ({first_name,last_name, category, city, description,imgURL,i
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {first_name} {last_name}
+          {name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           <h3>{category}</h3>

@@ -17,10 +17,10 @@ useEffect(()=>{
     <Box width={"100%"} height={"100%"} margin={"auto"} marginTop={2}>
       <Box margin={"auto"} width={"60%"} height={"40vh"} padding={2}>
         <img
-          src="https://static.vecteezy.com/system/resources/previews/008/923/944/original/technicians-people-group-engineering-worker-and-construction-industrial-engineers-workers-builders-characters-isolated-cartoon-illustration-vector.jpg"
+          src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*vh4vsuoZCWZhKJTnJy_jVg.jpeg"
           alt="worker home image"
           width={"100%"}
-          height={"100%"}
+          height={"110%"}
         />
       </Box>
 
@@ -37,17 +37,18 @@ useEffect(()=>{
         flexWrap="wrap"
       >
         {worker &&
-          worker.slice(0,4).map((worker, index) => (
-            <ServiceItem
-              id={worker.id}
-              first_name={worker.first_name}
-              last_name={worker.last_name}
-              category={worker.category}
-              city={worker.city}
-              description={worker.description}
-              key={index}
-            />
-          ))}
+          worker
+            .slice(0, 4)
+            .map((worker, index) => (
+              <ServiceItem
+                id={worker.id}
+name={worker.name}
+                category={worker.category}
+                city={worker.city}
+                description={worker.description}
+                key={index}
+              />
+            ))}
       </Box>
       <Box display="flex" padding={5} margin="auto">
         <Button

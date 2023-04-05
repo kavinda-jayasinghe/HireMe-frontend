@@ -40,13 +40,13 @@ function WorkerLogin() {
     }
   };
   return (
-    <div className="d-flex justify-content-center align-items-center  vh-100">
+    <div className="d-flex  justify-content-center align-items-center  vh-100">
       <div
         className="bg-white p-3 rounded w-25"
         style={{ boxShadow: "rgba(150, 150, 151, 0.8) 0px 7px 29px 0px" }}
       >
         {" "}
-        <h2 style={{ textAlign: "center", lineHeight: "2.3" }}>Log-In</h2>
+        <h2 style={{ textAlign: "center", lineHeight: "2.3" }}>Worker Log-In</h2>
         {backendError ? (
           backendError.map((e) => <p className="text-danger">{e.msg}</p>)
         ) : (
@@ -89,7 +89,7 @@ function WorkerLogin() {
           </button>{" "}
           <p>You are agree to aour terms and policies</p>{" "}
           <Link
-            to="/customer-signup"
+            to="/seller-signup"
             className="btn btn-outline-primary border w-100  rounded-pill text-decoration-none"
           >
             Create Account

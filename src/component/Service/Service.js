@@ -42,8 +42,7 @@ useEffect(() => {
           worker.map((worker, index) => (
             <ServiceItem
               id={worker.id}
-              first_name={worker.first_name}
-              last_name={worker.last_name}
+              name={worker.name}
               category={worker.category}
               city={worker.city}
               description={worker.description}

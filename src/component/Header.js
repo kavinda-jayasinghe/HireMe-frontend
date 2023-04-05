@@ -43,7 +43,7 @@ export default function Header() {
 
             <Tab
               LinkComponent={Link}
-              to="/become-seller"
+              to="/seller-login"
               label="Become a Seller"
             />
           </Tabs>

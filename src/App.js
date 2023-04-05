@@ -7,6 +7,7 @@ import CustomerLogin from "./component/Customer/CustomerLogin";
 import CustomerSignup from "./component/Customer/CustomerSignup";
 import RegisteredCustomer from "./component/Customer/RegisteredCustomer";
 import WorkerLogin from "./component/worker/WorkerLogin";
+import WorkerSignUp from "./component/worker/WorkerSignUp";
 
 
 
@@ -23,7 +24,8 @@ function App() {
           <Route path="/customer-login" element={<CustomerLogin />} />
           <Route path="/customer-signup" element={<CustomerSignup />} />
           <Route path="/registered-customer" element={<RegisteredCustomer />} />
-          <Route path="/become-seller" element={<WorkerLogin/>} />
+          <Route path="/seller-login" element={<WorkerLogin />} />
+          <Route path="/seller-signup" element={<WorkerSignUp />} />
         </Routes>
       </section>
 

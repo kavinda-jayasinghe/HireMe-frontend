@@ -42,7 +42,7 @@ function CustomerSignup() {
         style={{ boxShadow: "rgba(150, 150, 151, 0.8) 0px 7px 29px 0px" }}
       >
         {" "}
-        <h2 style={{ textAlign: "center" }}>Sign-Up</h2>{" "}
+        <h2 style={{ textAlign: "center" }}>Customer Sign-Up</h2>{" "}
         <form action="" onSubmit={handleSubmit}>
           {" "}
           {/* ======================================Name======================= */}

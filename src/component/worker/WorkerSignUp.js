@@ -11,6 +11,7 @@ function WorkerSignUp() {
   const [city, setcity] = useState("");
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
+  const [photo, setPhoto] = useState("");
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
 
@@ -25,28 +26,32 @@ function WorkerSignUp() {
       err.mobile === "" &&
       err.password === ""
     ) {
-      axios.post("http://localhost:8080/api/v1/customer/signup", {
-        name,
-        city,
-        mobile,
-        password,
+      axios.post("http://localhost:8080/api/v1/worker/signup", {
+        name:name,
+        city:city,
+        mobile:mobile,
+        password:password,
+        photo:photo,
       });
       <Link to="/registered-customer"></Link>;
     }
   };
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
+    <div
+      className="d-flex justify-content-center align-items-center"
+      style={{ paddingTop: "80px" }}
+    >
       {" "}
       <div
         className="bg-white p-3 rounded w-25"
         style={{ boxShadow: "rgba(150, 150, 151, 0.8) 0px 7px 29px 0px" }}
       >
         {" "}
-        <h2 style={{ textAlign: "center" }}>Sign-Up</h2>{" "}
+        <h2 style={{ textAlign: "center" }}> Worker Sign-Up</h2>{" "}
         <form action="" onSubmit={handleSubmit}>
           {" "}
           {/* ======================================Name======================= */}
-          <div className="mb-3">
+          <div className="mb-2">
             {" "}
             <label htmlFor="name">
               <strong>Name</strong>
@@ -63,7 +68,7 @@ function WorkerSignUp() {
             {errors.name && <span className="text-danger"> {errors.name}</span>}{" "}
           </div>
           {/* ======================================City======================= */}
-          <div className="mb-3">
+          <div className="mb-2">
             {" "}
             <label htmlFor="city">
               <strong>City</strong>
@@ -79,7 +84,7 @@ function WorkerSignUp() {
             />{" "}
             {errors.city && <span className="text-danger"> {errors.city}</span>}{" "}
           </div>{" "}
-          <div className="mb-3">
+          <div className="mb-2">
             {" "}
             {/* ======================================Mobile======================= */}
             <label htmlFor="mobile">
@@ -99,7 +104,7 @@ function WorkerSignUp() {
             )}{" "}
           </div>{" "}
           {/* ======================================password======================= */}
-          <div className="mb-3">
+          <div className="mb-2">
             {" "}
             <label htmlFor="password">
               <strong>Password</strong>
@@ -117,17 +122,33 @@ function WorkerSignUp() {
               <span className="text-danger"> {errors.password}</span>
             )}{" "}
           </div>{" "}
+          {/* ======================================pro pic======================= */}
+          <div className="mb-3">
+            {" "}
+            <label htmlFor="name">
+              <strong>Photo</strong>
+            </label>{" "}
+            <input
+              type="file"
+              placeholder="Enter Full Name"
+              name="name"
+              onChange={(event) => {
+                setPhoto(event.target.value);
+              }}
+              className="form-control rounded-0"
+            />{" "}
+            {errors.name && <span className="text-danger"> {errors.name}</span>}{" "}
+          </div>
           <button
             type="submit"
-            className="btn btn-success w-100 rounded-pill"
+            className="btn btn-success w-100 rounded-pill mb-2"
             style={{ borderRadius: "10px" }}
           >
             {" "}
             Sign up
           </button>{" "}
-          <p>You are agree to our terms and policies</p>{" "}
           <Link
-            to="/customer-login"
+            to="/seller-login"
             className="btn btn-primary border w-100 rounded-pill text-decoration-none "
           >
             Login

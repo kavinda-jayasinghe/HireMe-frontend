@@ -46,7 +46,7 @@ function CustomerLogin() {
         style={{ boxShadow: "rgba(150, 150, 151, 0.8) 0px 7px 29px 0px" }}
       >
         {" "}
-        <h2 style={{ textAlign: "center", lineHeight: "2.3" }}>Log-In</h2>
+        <h2 style={{ textAlign: "center", lineHeight: "2.3" }}>Customer Log-In</h2>
         {backendError ? (
           backendError.map((e) => <p className="text-danger">{e.msg}</p>)
         ) : (
