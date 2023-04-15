@@ -5,40 +5,37 @@ import { Link, useNavigate } from "react-router-dom";
 import Validation from "./SignupValidation";
 
 import axios from "axios";
+import Button from '@mui/material/Button'
 
 function WorkerSignUp() {
   const [name, setName] = useState("");
-  const [city, setcity] = useState("");
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
-  const [photo, setPhoto] = useState("");
+
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const err = Validation({ name, city, mobile, password });
+    const err = Validation({ name, mobile, password });
     setErrors(err);
 
     if (
       err.name === "" &&
-      err.city === "" &&
       err.mobile === "" &&
       err.password === ""
     ) {
       axios.post("http://localhost:8080/api/v1/worker/signup", {
         name:name,
-        city:city,
         mobile:mobile,
         password:password,
-        photo:photo,
       });
-      <Link to="/registered-customer"></Link>;
+      <Link to="/registered-worker"></Link>;
     }
   };
   return (
     <div
-      className="d-flex justify-content-center align-items-center"
+      className="d-flex justify-content-center align-items-center vh-100"
       style={{ paddingTop: "80px" }}
     >
       {" "}
@@ -51,7 +48,7 @@ function WorkerSignUp() {
         <form action="" onSubmit={handleSubmit}>
           {" "}
           {/* ======================================Name======================= */}
-          <div className="mb-2">
+          <div className="mb-3">
             {" "}
             <label htmlFor="name">
               <strong>Name</strong>
@@ -67,26 +64,9 @@ function WorkerSignUp() {
             />{" "}
             {errors.name && <span className="text-danger"> {errors.name}</span>}{" "}
           </div>
-          {/* ======================================City======================= */}
-          <div className="mb-2">
+          {/* ======================================Mobile======================= */}
+          <div className="mb-3">
             {" "}
-            <label htmlFor="city">
-              <strong>City</strong>
-            </label>{" "}
-            <input
-              type="text"
-              placeholder="Enter City"
-              name="city"
-              onChange={(event) => {
-                setcity(event.target.value);
-              }}
-              className="form-control rounded-0"
-            />{" "}
-            {errors.city && <span className="text-danger"> {errors.city}</span>}{" "}
-          </div>{" "}
-          <div className="mb-2">
-            {" "}
-            {/* ======================================Mobile======================= */}
             <label htmlFor="mobile">
               <strong>Mobile</strong>
             </label>{" "}
@@ -104,7 +84,7 @@ function WorkerSignUp() {
             )}{" "}
           </div>{" "}
           {/* ======================================password======================= */}
-          <div className="mb-2">
+          <div className="mb-3">
             {" "}
             <label htmlFor="password">
               <strong>Password</strong>
@@ -122,34 +102,18 @@ function WorkerSignUp() {
               <span className="text-danger"> {errors.password}</span>
             )}{" "}
           </div>{" "}
-          {/* ======================================pro pic======================= */}
-          <div className="mb-3">
+
             {" "}
-            <label htmlFor="name">
-              <strong>Photo</strong>
-            </label>{" "}
-            <input
-              type="file"
-              placeholder="Enter Full Name"
-              name="name"
-              onChange={(event) => {
-                setPhoto(event.target.value);
-              }}
-              className="form-control rounded-0"
-            />{" "}
-            {errors.name && <span className="text-danger"> {errors.name}</span>}{" "}
-          </div>
-          <button
-            type="submit"
-            className="btn btn-success w-100 rounded-pill mb-2"
-            style={{ borderRadius: "10px" }}
-          >
-            {" "}
-            Sign up
-          </button>{" "}
+            <Link
+              to="/seller-login"
+              className="btn btn-outline-primary border w-100  rounded-pill text-decoration-none"
+            >
+              Sign up
+            </Link><br/>
+      {" "}
           <Link
             to="/seller-login"
-            className="btn btn-primary border w-100 rounded-pill text-decoration-none "
+            className="btn btn-success border w-100 rounded-pill text-light "
           >
             Login
           </Link>{" "}

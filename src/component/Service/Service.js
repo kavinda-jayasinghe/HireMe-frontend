@@ -9,7 +9,7 @@ import ServiceItem from './ServiceItem';
 function Service() {
 const[worker,setWorker]=useState();
 useEffect(() => {
-  fetch("http://localhost:8080/api/v1/worker/getAllWorkers")
+  fetch("http://localhost:8080/api/v1/add/get-all-gigs")
     .then((response) => response.json())
     .then((data) => {
       setWorker(data);
@@ -41,10 +41,11 @@ useEffect(() => {
         {worker &&
           worker.map((worker, index) => (
             <ServiceItem
-              id={worker.id}
+              id={worker.advertisementId}
               name={worker.name}
               category={worker.category}
               city={worker.city}
+              imgURL={worker.addedPhotos}
               description={worker.description}
               key={index}
             />

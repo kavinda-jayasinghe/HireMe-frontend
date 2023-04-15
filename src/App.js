@@ -8,6 +8,12 @@ import CustomerSignup from "./component/Customer/CustomerSignup";
 import RegisteredCustomer from "./component/Customer/RegisteredCustomer";
 import WorkerLogin from "./component/worker/WorkerLogin";
 import WorkerSignUp from "./component/worker/WorkerSignUp";
+import PublishService from "./component/Service/PublishService";
+import View from "./component/View/View";
+
+
+
+
 
 
 
@@ -15,7 +21,6 @@ import WorkerSignUp from "./component/worker/WorkerSignUp";
 function App() {
   return (
     <div>
-      {/* Header */}
       <Header />
       <section>
         <Routes>
@@ -26,10 +31,14 @@ function App() {
           <Route path="/registered-customer" element={<RegisteredCustomer />} />
           <Route path="/seller-login" element={<WorkerLogin />} />
           <Route path="/seller-signup" element={<WorkerSignUp />} />
+          <Route path="/view/:id" element={<View/>} />
+          <Route
+            path="/seller-signup/new-service"
+            element={<PublishService />}
+          />
         </Routes>
       </section>
 
-      {/* Home Page */}
     </div>
   );
 }

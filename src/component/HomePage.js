@@ -3,11 +3,13 @@ import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import ServiceItem from './Service/ServiceItem';
+import Footer from './footer/Footer';
+
 
 const HomePage = () => {
   const [worker,setWorker]=useState([]);
 useEffect(()=>{
-    fetch("http://localhost:8080/api/v1/worker/getAllWorkers")
+    fetch("http://localhost:8080/api/v1/add/get-all-gigs")
       .then((response) => response.json())
       .then((data) => {
         setWorker(data);
@@ -15,6 +17,8 @@ useEffect(()=>{
 },[])
   return (
     <Box width={"100%"} height={"100%"} margin={"auto"} marginTop={2}>
+      {/* home page image */}
+
       <Box margin={"auto"} width={"60%"} height={"40vh"} padding={2}>
         <img
           src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*vh4vsuoZCWZhKJTnJy_jVg.jpeg"
@@ -41,11 +45,12 @@ useEffect(()=>{
             .slice(0, 4)
             .map((worker, index) => (
               <ServiceItem
-                id={worker.id}
-name={worker.name}
+                id={worker.advertisementId}
+                name={worker.name}
+                imgURL={worker.addedPhotos}
                 category={worker.category}
                 city={worker.city}
-                description={worker.description}
+                title={worker.title}
                 key={index}
               />
             ))}
@@ -60,6 +65,7 @@ name={worker.name}
           view All Services
         </Button>
       </Box>
+      <Footer />
     </Box>
   );
 }

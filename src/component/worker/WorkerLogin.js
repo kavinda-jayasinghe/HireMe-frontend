@@ -23,7 +23,7 @@ function WorkerLogin() {
     setErrors(err);
     if (err.mobile === "" && err.password === "") {
       axios
-        .post("localhost:8081/login", values)
+        .post("localhost:8080/login", values)
         .then((res) => {
           if (res.data.errors) {
             setBackendError(res.data.errors);
@@ -42,7 +42,7 @@ function WorkerLogin() {
   return (
     <div className="d-flex  justify-content-center align-items-center  vh-100">
       <div
-        className="bg-white p-3 rounded w-25"
+        className="bg-white p-4 rounded w-25"
         style={{ boxShadow: "rgba(150, 150, 151, 0.8) 0px 7px 29px 0px" }}
       >
         {" "}

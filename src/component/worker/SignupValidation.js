@@ -14,12 +14,6 @@ function Validation(values) {
     error.name = "";
   }
 
-  if (values.city === "") {
-    error.city = "Enter city";
-  } else {
-    error.city = "";
-  }
-
   if (values.mobile === "") {
     error.mobile = "Enter Mobile number";
   } else if (!mobile_pattern.test(values.mobile)) {
