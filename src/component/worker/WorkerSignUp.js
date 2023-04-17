@@ -15,8 +15,9 @@ function WorkerSignUp() {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+   const handleSubmit = (event) => {
+
+
     const err = Validation({ name, mobile, password });
     setErrors(err);
 
@@ -25,12 +26,19 @@ function WorkerSignUp() {
       err.mobile === "" &&
       err.password === ""
     ) {
-      axios.post("http://localhost:8080/api/v1/worker/signup", {
-        name:name,
-        mobile:mobile,
-        password:password,
+
+   event.preventDefault();
+    try {
+       axios.post("http://localhost:8081/api/v1/worker/signup", {
+        name: name,
+        mobile: mobile,
+        password: password,
       });
-      <Link to="/registered-worker"></Link>;
+      alert("worker Registation Successfully");
+    } catch (err) {
+      alert(err);
+    }
+   
     }
   };
   return (
@@ -105,7 +113,7 @@ function WorkerSignUp() {
 
             {" "}
             <Link
-              to="/seller-login"
+              to="/seller-login" onClick={handleSubmit}
               className="btn btn-outline-primary border w-100  rounded-pill text-decoration-none"
             >
               Sign up

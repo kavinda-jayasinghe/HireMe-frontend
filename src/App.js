@@ -6,10 +6,11 @@ import Service from "./component/Service/Service";
 import CustomerLogin from "./component/Customer/CustomerLogin";
 import CustomerSignup from "./component/Customer/CustomerSignup";
 import RegisteredCustomer from "./component/Customer/RegisteredCustomer";
-import WorkerLogin from "./component/worker/WorkerLogin";
-import WorkerSignUp from "./component/worker/WorkerSignUp";
+
 import PublishService from "./component/Service/PublishService";
 import View from "./component/View/View";
+import Register from "./component/worker/Register";
+import Login from "./component/worker/Login";
 
 
 
@@ -29,16 +30,13 @@ function App() {
           <Route path="/customer-login" element={<CustomerLogin />} />
           <Route path="/customer-signup" element={<CustomerSignup />} />
           <Route path="/registered-customer" element={<RegisteredCustomer />} />
-          <Route path="/seller-login" element={<WorkerLogin />} />
-          <Route path="/seller-signup" element={<WorkerSignUp />} />
-          <Route path="/view/:id" element={<View/>} />
-          <Route
-            path="/seller-signup/new-service"
-            element={<PublishService />}
-          />
+          <Route path="/seller-login" element={<Login />} />
+          <Route path="/seller-signup/new-service"element={<PublishService />}/>
+          <Route path="/seller-signup" element={<Register />} />
+          <Route path="/view/:id" element={<View />} />
         </Routes>
       </section>
-
+      <Routes></Routes>
     </div>
   );
 }
